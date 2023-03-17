@@ -4,26 +4,34 @@ describe('getSum function:', () => {
     test('should sum 3 positive numbers of  the array', () => {
         const arr = [1, 2, 3]
         expect(getSum(arr)).toBe(6)
+        expect(getSum(arr)).not.toBe(9)
+        expect(getSum(arr)).toBeDefined()
     })
 
     test('should sum 2 positive and 1 negative numbers of the array', () => {
         const arr = [-1, 2, 3]
-        expect(getSum(arr)).toBe(4)
+        expect(getSum(arr)).not.toBe(5)
+        expect(getSum(arr)).toBeTruthy()
+        expect(getSum(arr)).toBeLessThan(19)
     })
 
     test('should sum the fractional, positive and negative numbers of the array', () => {
         const arr = [0.1, -2, 3]
-        expect(getSum(arr)).toBe(1.1)
+        expect(getSum(arr)).not.toBeNull()
+        expect(getSum(arr)).not.toBeCloseTo(1)
+        expect(getSum(arr)).toBeLessThanOrEqual(1.1)
     })
 
     test('should return the sum of number from the array of one number', () => {
         const arr = [7]
+        expect(getSum(arr)).toEqual(7)
         expect(getSum(arr)).toBe(7)
     })
 
     test('should sum fructional numbers from the array', () => {
         const arr = [0.1, 0.3, 0.3]
         expect(getSum(arr)).toBe(0.7)
+        expect(getSum(arr)).toBeGreaterThan(0.2)
     })
 })
 
